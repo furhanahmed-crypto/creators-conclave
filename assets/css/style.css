@@ -23,6 +23,13 @@
 
   /* Polished Chrome / Glossy White Typography Gradients */
   --text-glossy-white: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #e6edf5 28%,
+    #b0c0d2 62%,
+    #7a8ea3 100%
+  );
+  --text-shine-white: linear-gradient(
     120deg,
     #6e8196 0%,
     #b4c4d5 13%,
@@ -163,7 +170,7 @@ p + p { margin-top: 1rem; }
 .event-hero h1,
 .why-panel h2,
 .detail-aside h2 {
-  background-image: var(--text-glossy-white);
+  background-image: var(--text-shine-white);
   background-size: 240% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
