@@ -1,0 +1,43 @@
+<?php
+
+$site = [
+    'announce' => 'Nominations for CreatorX Awards 2026 are OPEN • 1 – 30 October 2026 • Creators Conclave Summit • December 2026, Hyderabad • Nominate Now • Passes Selling Fast',
+    'nav' => [
+        ['id' => 'home', 'label' => 'Home', 'href' => 'index.php'],
+        ['id' => 'about', 'label' => 'About', 'href' => 'about.php'],
+        ['id' => 'awards', 'label' => 'CreatorX Awards', 'href' => 'awards.php'],
+        ['id' => 'passes', 'label' => 'Passes', 'href' => 'passes.php'],
+        ['id' => 'sponsor', 'label' => 'Sponsor & Exhibit', 'href' => 'sponsor.php'],
+        ['id' => 'jury', 'label' => 'Jury & Guests', 'href' => 'jury.php'],
+        ['id' => 'contact', 'label' => 'Contact', 'href' => 'contact.php'],
+    ],
+    'tagline' => 'CREATE • COLLAB • CONQUER',
+    'footerAbout' => 'Creators Conclave is India’s creator economy platform, bringing Telugu creators, brands and agencies together through a summit, an expo and the CreatorX Awards.',
+    'quickLinks' => [
+        ['label' => 'About', 'href' => 'about.php'],
+        ['label' => 'CreatorX Awards', 'href' => 'awards.php'],
+        ['label' => 'Nominate', 'href' => 'nominate.php'],
+        ['label' => 'Passes', 'href' => 'passes.php'],
+        ['label' => 'Sponsor & Exhibit', 'href' => 'sponsor.php'],
+        ['label' => 'FAQs', 'href' => 'faqs.php'],
+        ['label' => 'Contact', 'href' => 'contact.php'],
+    ],
+    'office' => 'Bee Echoo Pvt Ltd, Survey No. 64, Building No. 9, 13th Floor, Madhapur, HITEC City, Hyderabad, Telangana 500081',
+    'phone' => '+91 93814 01197',
+    'phoneHref' => 'tel:+919381401197',
+    'whatsapp' => 'https://wa.me/919381401197',
+    'email' => 'hello@creatorsconclave.com',
+    'socials' => ['[Instagram]', '[YouTube]', '[LinkedIn]', '[X]', '[Facebook]'],
+    'legal' => [
+        ['label' => 'Terms & Conditions', 'href' => 'terms.php'],
+        ['label' => 'Privacy Policy', 'href' => 'privacy.php'],
+        ['label' => 'Refund & Cancellation', 'href' => 'refund.php'],
+        ['label' => 'Nomination Rules', 'href' => 'nomination-rules.php'],
+    ],
+    'newsletter' => [
+        'heading' => 'Don’t miss your spotlight.',
+        'text' => 'Get nomination deadlines, pass offers and speaker announcements before anyone else.',
+        'button' => 'Keep Me Posted',
+    ],
+    'countdownTo' => '2026-12-08T10:00:00+05:30',
+];
