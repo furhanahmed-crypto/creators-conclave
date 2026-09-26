@@ -62,6 +62,18 @@
   font-weight: 600;
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: var(--shadow-gold-button);
+  transition: color 0.65s var(--ease), border-color 0.65s var(--ease), box-shadow 0.65s var(--ease), transform 0.65s var(--ease);
+}
+
+.button--gold::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #fffcf0 0%, #fff2c4 25%, #fae4a8 55%, #dfb85e 100%);
+  opacity: 0;
+  transition: opacity 0.65s var(--ease);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .button--gold > * {
@@ -101,10 +113,13 @@ form .button--gold::after,
 .contact-form .button--gold::after { animation-duration: 8.6s; animation-delay: -6.1s; }
 
 .button--gold:hover {
-  background: linear-gradient(135deg, #fffcf0 0%, #fff2c4 25%, #fae4a8 55%, #dfb85e 100%);
   color: #000000;
   box-shadow: 0 10px 24px rgba(223, 184, 94, 0.45), 0 0 18px rgba(255, 242, 196, 0.35);
   transform: translateY(-1px);
+}
+
+.button--gold:hover::before {
+  opacity: 1;
 }
 
 .button--gold:hover::after {

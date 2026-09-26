@@ -11,7 +11,7 @@ $homeContent = [
         'tagline' => 'CREATE • COLLAB • CONQUER',
         'chips' => ['December 2026 (2nd week)', 'Hyderabad [venue TBA]'],
         'countdownLabel' => 'The spotlight turns on in',
-        'image' => 'images/brand/hero.jpg',
+        'image' => 'images/events/expo.jpg',
         'primary' => ['label' => 'Nominate Now', 'href' => 'nominate.php'],
         'secondary' => ['label' => 'Buy Your Pass', 'href' => 'passes.php'],
     ],

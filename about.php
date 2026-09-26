@@ -10,7 +10,7 @@ include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/hero.php';
 ?>
 
-<section class="section">
+<section class="section section--light">
     <div class="container prose-block">
         <h2 data-reveal><?= e($aboutContent['storyTitle']) ?></h2>
         <?php foreach ($aboutContent['story'] as $paragraph): ?>
@@ -19,7 +19,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section section--tight">
+<section class="section section--light section--tight">
     <div class="container pillar-grid">
         <article class="pillar" data-reveal>
             <h2><?= e($aboutContent['visionTitle']) ?></h2>
@@ -36,7 +36,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section section--light">
     <div class="container">
         <h2 class="block-title" data-reveal><?= e($aboutContent['standTitle']) ?></h2>
         <div class="practice-grid practice-grid--three">
@@ -50,7 +50,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section section--band">
+<section class="section section--dark">
     <div class="container split-copy">
         <article data-reveal>
             <h2><?= e($aboutContent['presenterTitle']) ?></h2>

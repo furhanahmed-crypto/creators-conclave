@@ -11,7 +11,7 @@ include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/hero.php';
 ?>
 
-<section class="section section--tight">
+<section class="section section--light section--tight">
     <div class="container stat-grid stat-grid--five">
         <?php foreach ($homeContent['numbers'] as $stat): ?>
             <article class="stat-card" data-reveal>
@@ -22,7 +22,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section section--light">
     <div class="container prose-block" data-reveal>
         <p class="eyebrow"><?= e($homeContent['about']['kicker']) ?></p>
         <h2><?= e($homeContent['about']['title']) ?></h2>
@@ -31,7 +31,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section section--tight">
+<section class="section section--dark section--tight">
     <div class="container">
         <h2 class="block-title" data-reveal><?= e($homeContent['experiences']['title']) ?></h2>
         <div class="experience-grid">
@@ -48,7 +48,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section event-showcase">
+<section class="section section--dark event-showcase">
     <div class="container section-row" data-reveal>
         <div class="section-heading">
             <p class="eyebrow"><?= e($homeContent['showcase']['kicker']) ?></p>
@@ -84,7 +84,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section section--light">
     <div class="container">
         <div class="prose-block" data-reveal>
             <p class="eyebrow"><?= e($homeContent['awards']['kicker']) ?></p>
@@ -103,7 +103,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section section--band">
+<section class="section section--dark">
     <div class="container">
         <h2 class="block-title" data-reveal><?= e($homeContent['attend']['title']) ?></h2>
         <div class="ecosystem-grid ecosystem-grid--six">
@@ -115,7 +115,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section section--light">
     <div class="container">
         <h2 class="block-title" data-reveal><?= e($homeContent['why']['title']) ?></h2>
         <div class="practice-grid">
@@ -129,7 +129,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section moment-gallery">
+<section class="section section--light moment-gallery">
     <div class="container">
         <div class="section-heading section-heading--wide" data-reveal>
             <p class="eyebrow"><?= e($homeContent['gallery']['kicker']) ?></p>
@@ -150,7 +150,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section section--tight">
+<section class="section section--light section--tight">
     <div class="container prose-block" data-reveal>
         <p class="eyebrow"><?= e($homeContent['jury']['title']) ?></p>
         <h2><?= e($homeContent['jury']['heading']) ?></h2>
@@ -159,7 +159,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section section--band">
+<section class="section section--dark">
     <div class="container split-copy">
         <article data-reveal>
             <p class="eyebrow">Multi-city tour</p>
@@ -175,7 +175,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section section--dark">
     <div class="container">
         <div class="cta-panel" data-reveal>
             <h2><?= e($homeContent['cta']['title']) ?></h2>
