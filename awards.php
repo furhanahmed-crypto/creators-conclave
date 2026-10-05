@@ -10,7 +10,7 @@ include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/hero.php';
 ?>
 
-<section class="section section--light">
+<section class="section section--dark">
     <div class="container prose-block" data-reveal>
         <p><?= e($awardsContent['intro']) ?></p>
     </div>
@@ -27,7 +27,7 @@ include __DIR__ . '/includes/hero.php';
     </div>
 </section>
 
-<section class="section section--light section--tight">
+<section class="section section--dark">
     <div class="container">
         <h2 class="block-title"><?= e($awardsContent['whoTitle']) ?></h2>
         <ul class="plain-list">

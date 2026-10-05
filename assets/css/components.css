@@ -180,13 +180,110 @@ form .button--gold::after,
 }
 
 .filter-chip.is-active {
-  border: 1px solid transparent;
-  background:
-    linear-gradient(135deg, rgba(250, 228, 168, 0.18) 0%, rgba(223, 184, 94, 0.1) 100%) padding-box,
-    linear-gradient(135deg, #fae4a8, #dfb85e, #a07820) border-box;
-  color: #fae4a8;
-  font-weight: 600;
-  box-shadow: 0 0 16px rgba(223, 184, 94, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: var(--gold-metallic);
+  color: #070709;
+  font-weight: 700;
+  box-shadow: var(--shadow-gold-button);
+}
+
+.filter-chip.is-active:hover {
+  color: #000000;
+}
+
+/* Live gold border glow on image cards */
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes image-glow-spin {
+  to { --glow-angle: 360deg; }
+}
+
+@keyframes image-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(223, 184, 94, 0.35),
+      0 0 18px rgba(223, 184, 94, 0.22),
+      0 12px 32px rgba(0, 0, 0, 0.55);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(250, 228, 168, 0.75),
+      0 0 28px rgba(223, 184, 94, 0.45),
+      0 0 52px rgba(250, 228, 168, 0.2),
+      0 14px 36px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.experience-card,
+.gallery-card,
+.event-card,
+.speaker-card,
+.event-slide,
+.about-split__media,
+.featured__media {
+  --glow-angle: 0deg;
+}
+
+.experience-card::after,
+.gallery-card::after,
+.event-card::after,
+.speaker-card::after,
+.event-slide::after,
+.about-split__media::after,
+.featured__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.45s var(--ease);
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 0deg,
+    transparent 210deg,
+    rgba(250, 228, 168, 0.15) 250deg,
+    #fae4a8 290deg,
+    #dfb85e 320deg,
+    rgba(255, 252, 240, 0.95) 340deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.experience-card:hover::after,
+.gallery-card:hover::after,
+.event-card:hover::after,
+.speaker-card:hover::after,
+.event-slide:hover::after,
+.about-split__media:hover::after,
+.featured__media:hover::after {
+  opacity: 1;
+  animation: image-glow-spin 2.4s linear infinite;
+}
+
+.experience-card:hover,
+.gallery-card:hover,
+.event-card:hover,
+.speaker-card:hover,
+.event-slide:hover,
+.about-split__media:hover,
+.featured__media:hover {
+  border-color: rgba(223, 184, 94, 0.55);
+  animation: image-glow-pulse 2.2s ease-in-out infinite;
 }
 
 .event-card {
@@ -199,12 +296,13 @@ form .button--gold::after,
   backdrop-filter: blur(10px);
   min-height: 100%;
   overflow: hidden;
+  position: relative;
+  isolation: isolate;
   transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
 }
 
 .event-card:hover {
-  border-color: rgba(223, 184, 94, 0.45);
-  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(223, 184, 94, 0.55);
   transform: translateY(-3px);
 }
 
@@ -245,12 +343,13 @@ form .button--gold::after,
   backdrop-filter: blur(10px);
   height: 100%;
   overflow: hidden;
+  position: relative;
+  isolation: isolate;
   transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
 }
 
 .speaker-card:hover {
-  border-color: rgba(223, 184, 94, 0.45);
-  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(223, 184, 94, 0.55);
   transform: translateY(-3px);
 }
 
@@ -331,6 +430,7 @@ form .button--gold::after,
   overflow: hidden;
   text-align: left;
   box-shadow: var(--shadow-card);
+  isolation: isolate;
   transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
 }
 
@@ -341,8 +441,7 @@ form .button--gold::after,
 .detail-gallery .gallery-card { height: 100%; }
 
 .gallery-card:hover {
-  border-color: rgba(223, 184, 94, 0.5);
-  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(223, 184, 94, 0.55);
   transform: translateY(-2px);
 }
 .gallery-card:hover img { transform: scale(1.05); }
@@ -350,6 +449,7 @@ form .button--gold::after,
 .gallery-card__meta {
   position: absolute;
   inset: auto 0 0;
+  z-index: 6;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -444,8 +544,6 @@ form .button--gold::after,
 .form-success p:last-child { color: var(--text-muted); }
 .hp-field { position: absolute; left: -9999px; }
 
-.event-showcase { padding-top: 2rem; }
-
 .event-showcase__track {
   padding-left: max(1.25rem, calc((100% - min(var(--container), calc(100% - 2.5rem))) / 2));
   padding-right: 1.25rem;
@@ -464,12 +562,13 @@ form .button--gold::after,
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
+  isolation: isolate;
   transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
 }
 
 .event-slide:hover {
-  border-color: rgba(223, 184, 94, 0.45);
-  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(223, 184, 94, 0.55);
   transform: translateY(-3px);
 }
 
