@@ -23,17 +23,26 @@ include __DIR__ . '/includes/hero.php';
 </section>
 
 <section class="section section--light">
-    <div class="container prose-block" data-reveal>
-        <p class="eyebrow"><?= e($homeContent['about']['kicker']) ?></p>
-        <h2><?= e($homeContent['about']['title']) ?></h2>
-        <p><?= e($homeContent['about']['text']) ?></p>
-        <a class="button button--gold" href="<?= e(url('about.php')) ?>"><?= e($homeContent['about']['button']) ?></a>
+    <div class="container about-split" data-reveal>
+        <div class="about-split__copy">
+            <p class="eyebrow"><?= e($homeContent['about']['kicker']) ?></p>
+            <h2><?= e($homeContent['about']['title']) ?></h2>
+            <p><?= e($homeContent['about']['text']) ?></p>
+            <a class="button button--gold" href="<?= e(url('about.php')) ?>"><?= e($homeContent['about']['button']) ?></a>
+        </div>
+        <aside class="about-split__media">
+            <img src="<?= e(asset($homeContent['hero']['image'])) ?>" alt="">
+            <span class="about-split__badge">Summit 2026</span>
+        </aside>
     </div>
 </section>
 
 <section class="section section--dark section--tight">
     <div class="container">
-        <h2 class="block-title" data-reveal><?= e($homeContent['experiences']['title']) ?></h2>
+        <div class="section-heading section-heading--wide" data-reveal>
+            <p class="eyebrow">The experience</p>
+            <h2><?= e($homeContent['experiences']['title']) ?></h2>
+        </div>
         <div class="experience-grid">
             <?php foreach ($homeContent['experiences']['items'] as $item): ?>
                 <article class="experience-card" data-reveal>
@@ -86,10 +95,10 @@ include __DIR__ . '/includes/hero.php';
 
 <section class="section section--light">
     <div class="container">
-        <div class="prose-block" data-reveal>
+        <div class="section-heading section-heading--wide" data-reveal>
             <p class="eyebrow"><?= e($homeContent['awards']['kicker']) ?></p>
             <h2><?= e($homeContent['awards']['title']) ?></h2>
-            <p><?= e($homeContent['awards']['text']) ?></p>
+            <p class="section-heading__copy"><?= e($homeContent['awards']['text']) ?></p>
         </div>
         <div class="category-grid">
             <?php foreach ($homeContent['awards']['cards'] as $card): ?>
@@ -105,7 +114,10 @@ include __DIR__ . '/includes/hero.php';
 
 <section class="section section--dark">
     <div class="container">
-        <h2 class="block-title" data-reveal><?= e($homeContent['attend']['title']) ?></h2>
+        <div class="section-heading section-heading--wide" data-reveal>
+            <p class="eyebrow">Who it's for</p>
+            <h2><?= e($homeContent['attend']['title']) ?></h2>
+        </div>
         <div class="ecosystem-grid ecosystem-grid--six">
             <?php foreach ($homeContent['attend']['groups'] as $group): ?>
                 <article class="ecosystem-card" data-reveal><h3><?= e($group) ?></h3></article>
@@ -117,10 +129,14 @@ include __DIR__ . '/includes/hero.php';
 
 <section class="section section--light">
     <div class="container">
-        <h2 class="block-title" data-reveal><?= e($homeContent['why']['title']) ?></h2>
-        <div class="practice-grid">
-            <?php foreach ($homeContent['why']['items'] as $item): ?>
-                <article class="practice-card" data-reveal>
+        <div class="section-heading section-heading--wide" data-reveal>
+            <p class="eyebrow">Why join</p>
+            <h2><?= e($homeContent['why']['title']) ?></h2>
+        </div>
+        <div class="feature-grid">
+            <?php foreach ($homeContent['why']['items'] as $index => $item): ?>
+                <article class="feature-card" data-reveal>
+                    <span class="feature-card__index"><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?></span>
                     <h3><?= e($item['title']) ?></h3>
                     <p><?= e($item['text']) ?></p>
                 </article>
@@ -177,7 +193,8 @@ include __DIR__ . '/includes/hero.php';
 
 <section class="section section--dark">
     <div class="container">
-        <div class="cta-panel" data-reveal>
+        <div class="cta-panel cta-panel--festiva" data-reveal>
+            <p class="eyebrow">Ready when you are</p>
             <h2><?= e($homeContent['cta']['title']) ?></h2>
             <div class="hero__actions">
                 <a class="button button--gold" href="<?= e(url('nominate.php')) ?>">Nominate Now</a>

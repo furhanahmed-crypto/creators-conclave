@@ -2,16 +2,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.9rem;
-  padding: 0.75rem 1.4rem;
+  min-height: 3rem;
+  padding: 0.8rem 1.65rem;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: var(--radius-pill);
   cursor: pointer;
-  font-family: var(--font-display);
-  letter-spacing: 0.08em;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-family: var(--font-ui);
+  letter-spacing: 0.04em;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-transform: none;
   transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
@@ -447,8 +447,9 @@ form .button--gold::after,
 .event-showcase { padding-top: 2rem; }
 
 .event-showcase__track {
-  padding-left: max(1.25rem, calc((100vw - var(--container)) / 2));
+  padding-left: max(1.25rem, calc((100% - min(var(--container), calc(100% - 2.5rem))) / 2));
   padding-right: 1.25rem;
+  overflow: hidden;
 }
 
 .event-swiper { overflow: hidden; }
