@@ -86,9 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const countdown = document.querySelector('[data-countdown]');
-  if (countdown) {
+  const countdowns = [...document.querySelectorAll('[data-countdown]')];
+  countdowns.forEach((countdown) => {
     const target = new Date(countdown.getAttribute('data-countdown')).getTime();
+    if (Number.isNaN(target)) return;
     const units = {
       days: countdown.querySelector('[data-days]'),
       hours: countdown.querySelector('[data-hours]'),
@@ -98,14 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const tick = () => {
       const remaining = Math.max(0, target - Date.now());
       const totalSeconds = Math.floor(remaining / 1000);
-      units.days.textContent = String(Math.floor(totalSeconds / 86400)).padStart(2, '0');
-      units.hours.textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, '0');
-      units.mins.textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
-      units.secs.textContent = String(totalSeconds % 60).padStart(2, '0');
+      if (units.days) units.days.textContent = String(Math.floor(totalSeconds / 86400)).padStart(2, '0');
+      if (units.hours) units.hours.textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, '0');
+      if (units.mins) units.mins.textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+      if (units.secs) units.secs.textContent = String(totalSeconds % 60).padStart(2, '0');
     };
     tick();
     window.setInterval(tick, 1000);
-  }
+  });
 
   const newsletter = document.querySelector('[data-newsletter]');
   const closeNewsletter = () => {

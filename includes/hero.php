@@ -4,46 +4,62 @@ $variant = $hero['variant'] ?? 'page';
 <?php if ($variant === 'home'): ?>
 <section class="fx-hero" data-animate="hero">
     <div class="fx-hero__media" aria-hidden="true">
-        <img src="<?= e(asset($hero['image'])) ?>" alt="">
-        <span class="fx-hero__shade"></span>
+        <span class="fx-hero__base"></span>
+        <span class="fx-hero__silk fx-hero__silk--a"></span>
+        <span class="fx-hero__silk fx-hero__silk--b"></span>
+        <span class="fx-hero__silk fx-hero__silk--c"></span>
         <span class="fx-hero__glow"></span>
-        <span class="fx-hero__panel"></span>
+        <span class="fx-hero__sparkles"></span>
     </div>
+
     <div class="container fx-hero__layout">
+        <aside class="fx-hero__visual" data-hero="figure">
+            <figure class="fx-hero__figure">
+                <img src="<?= e(asset($hero['figure'] ?? $hero['image'])) ?>" alt="">
+                <span class="fx-hero__figure-glow" aria-hidden="true"></span>
+            </figure>
+        </aside>
+
         <div class="fx-hero__content">
             <p class="fx-hero__eyebrow" data-hero="eyebrow"><?= e($hero['eyebrow']) ?></p>
             <h1 class="fx-hero__title" data-hero="line"><?= e($hero['title']) ?></h1>
-            <ul class="fx-hero__meta" data-hero="meta">
-                <li>
-                    <strong><?= e($hero['dateStrong']) ?></strong>
-                    <span><?= e($hero['dateLight']) ?></span>
-                </li>
-                <li>
-                    <strong><?= e($hero['venueStrong']) ?></strong>
-                    <span><?= e($hero['venueLight']) ?></span>
-                </li>
-            </ul>
+            <?php if (!empty($hero['subtitle'])): ?>
+                <p class="fx-hero__subtitle" data-hero="copy"><?= e($hero['subtitle']) ?></p>
+            <?php endif; ?>
             <div class="fx-hero__actions" data-hero="actions">
                 <a class="button button--gold" href="<?= e(url($hero['primary']['href'])) ?>"><?= e($hero['primary']['label']) ?></a>
                 <a class="button button--ghost" href="<?= e(url($hero['secondary']['href'])) ?>"><?= e($hero['secondary']['label']) ?></a>
             </div>
         </div>
-        <aside class="fx-hero__aside" data-hero="figure">
-            <figure class="fx-hero__figure">
-                <img src="<?= e(asset($hero['figure'] ?? $hero['image'])) ?>" alt="">
-            </figure>
-            <?php foreach ($hero['floatCards'] as $card): ?>
-                <article class="fx-float-card">
-                    <p class="fx-float-card__label"><?= e($card['label']) ?></p>
-                    <h3><?= e($card['title']) ?></h3>
-                    <p><?= e($card['meta']) ?></p>
-                </article>
-            <?php endforeach; ?>
-            <a class="fx-orbit" href="<?= e(url('about.php')) ?>">
-                <span>Explore Us</span>
-                <span aria-hidden="true">↗</span>
+    </div>
+
+    <div class="container">
+        <div class="fx-hero__bar" data-hero="bar">
+            <a class="fx-hero__urgency" href="<?= e(url($hero['primary']['href'])) ?>">
+                <span class="fx-hero__urgency-dot" aria-hidden="true"></span>
+                <?= e($hero['urgency'] ?? 'Hurry Up! Register Now') ?>
             </a>
-        </aside>
+
+            <div class="fx-hero__countdown" data-countdown="<?= e($site['countdownTo']) ?>">
+                <span><strong data-days>00</strong><small>Days</small></span>
+                <span><strong data-hours>00</strong><small>Hours</small></span>
+                <span><strong data-mins>00</strong><small>Mins</small></span>
+                <span><strong data-secs>00</strong><small>Secs</small></span>
+            </div>
+
+            <div class="fx-hero__venue">
+                <span class="fx-hero__pin" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/>
+                        <circle cx="12" cy="10" r="2.5"/>
+                    </svg>
+                </span>
+                <div>
+                    <strong><?= e($hero['venueStrong']) ?></strong>
+                    <span><?= e($hero['venueLight']) ?></span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <?php else: ?>

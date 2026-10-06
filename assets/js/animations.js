@@ -32,25 +32,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const eyebrow = pick('eyebrow');
         const line = pick('line');
         const copy = pick('copy');
-        const meta = pick('meta');
         const actions = pick('actions');
         const figure = pick('figure');
-        const parts = [...eyebrow, ...line, ...copy, ...meta, ...actions, ...figure];
+        const bar = pick('bar');
+        const parts = [...eyebrow, ...line, ...copy, ...actions, ...figure, ...bar];
 
         if (parts.length) {
-          gsap.set(parts, { autoAlpha: 0, y: 40 });
+          gsap.set(parts, { autoAlpha: 0, y: 36 });
 
           const timeline = gsap.timeline({
             defaults: { ease: 'sine.out', duration: 1.1 },
           });
 
-          if (eyebrow.length) timeline.to(eyebrow, { autoAlpha: 1, y: 0, duration: 0.9 });
-          if (line.length) timeline.to(line, { autoAlpha: 1, y: 0, duration: 1.25 }, '-=0.5');
-          if (figure.length) timeline.to(figure, { autoAlpha: 1, y: 0, duration: 1.3 }, '-=1');
-          if (copy.length) timeline.to(copy, { autoAlpha: 1, y: 0, stagger: 0.1 }, '-=0.55');
-          if (meta.length) timeline.to(meta, { autoAlpha: 1, y: 0, duration: 0.95 }, '-=0.5');
-          if (actions.length) timeline.to(actions, { autoAlpha: 1, y: 0, duration: 0.95 }, '-=0.45');
+          if (figure.length) timeline.to(figure, { autoAlpha: 1, y: 0, duration: 1.35 }, 0);
+          if (eyebrow.length) timeline.to(eyebrow, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.15);
+          if (line.length) timeline.to(line, { autoAlpha: 1, y: 0, duration: 1.2 }, 0.28);
+          if (copy.length) timeline.to(copy, { autoAlpha: 1, y: 0, duration: 0.95 }, 0.45);
+          if (actions.length) timeline.to(actions, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.58);
+          if (bar.length) timeline.to(bar, { autoAlpha: 1, y: 0, duration: 1 }, 0.7);
         }
+
+        gsap.utils.toArray(hero.querySelectorAll('.fx-hero__silk')).forEach((silk, i) => {
+          gsap.to(silk, {
+            x: i % 2 === 0 ? 24 : -20,
+            y: i % 2 === 0 ? 16 : -14,
+            duration: 8 + i * 2,
+            ease: 'sine.inOut',
+            yoyo: true,
+            repeat: -1,
+          });
+        });
       }
 
       const reveals = gsap.utils.toArray('[data-reveal]');
