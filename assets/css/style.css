@@ -67,11 +67,12 @@
   --shadow-card-hover: 0 20px 45px -8px rgba(0, 0, 0, 0.85), 0 0 24px -4px rgba(212, 175, 55, 0.12), inset 0 1px 2px 0 rgba(250, 228, 168, 0.2);
   --shadow-gold-button: 0 4px 20px rgba(223, 184, 94, 0.32), inset 0 1px 2px rgba(255, 255, 255, 0.65), inset 0 -1px 2px rgba(0, 0, 0, 0.3);
 
-  /* Fonts & Sizing — Festiva-inspired stack */
-  --font-display: "Syne", sans-serif;
+  /* Fonts & Sizing — geometric display headings (Montserrat) */
+  --font-display: "Montserrat", sans-serif;
   --font-ui: "Plus Jakarta Sans", sans-serif;
-  --font-serif: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Montserrat", sans-serif;
   --font-body: "Inter", sans-serif;
+  --heading-cream: #f3efe6;
   --container: 1180px;
   --nav-h: 84px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -123,7 +124,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 h1, h2, h3, p { margin: 0; }
 
-h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: var(--heading-cream);
+}
 
 p + p { margin-top: 1rem; }
 
@@ -202,31 +209,61 @@ p + p { margin-top: 1rem; }
 .event-hero h1,
 .why-panel h2,
 .detail-aside h2,
-.about-split__copy h2 {
+.about-split__copy h2,
+.fx-hero__title,
+.fx-about__copy h2,
+.fx-venue__copy h2,
+.fx-countdown__inner h2,
+.fx-faq__intro h2,
+.fx-newsletter__inner h2,
+.fx-footer-cta__inner h2 {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   line-height: 1.12;
-  background-image: var(--text-shine-white);
-  background-size: 240% auto;
+  background-image: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f3efe6 28%,
+    #e8e0d0 58%,
+    #d4c9b4 100%
+  );
+  background-size: 100% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.85));
-  animation: title-shine-wave 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.75));
+  animation: none;
 }
 
-/* Staggered pseudo-random delays and durations so titles don't shine in unison */
+/* Keep a soft metallic drift on hero title only */
+.fx-hero__title,
+.hero__title,
+.hero__title--event {
+  background-image: linear-gradient(
+    120deg,
+    #cfc6b4 0%,
+    #f3efe6 22%,
+    #ffffff 38%,
+    #e8e0d0 55%,
+    #f3efe6 72%,
+    #ffffff 100%
+  );
+  background-size: 220% auto;
+  animation: title-shine-wave 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.fx-hero__title { animation-duration: 7.8s; animation-delay: -1.5s; }
 .hero__title,
 .hero__title--event { animation-duration: 7.2s; animation-delay: -1.5s; }
-.page-hero h1 { animation-duration: 7.6s; animation-delay: -3.2s; }
-.section-heading h2 { animation-duration: 8.2s; animation-delay: -4.7s; }
-.block-title { animation-duration: 7.4s; animation-delay: -0.9s; }
-.prose-block h2 { animation-duration: 8.5s; animation-delay: -5.8s; }
-.split-copy h2 { animation-duration: 7.8s; animation-delay: -2.3s; }
-.cta-panel h2 { animation-duration: 8.0s; animation-delay: -6.4s; }
-.event-showcase h2 { animation-duration: 7.5s; animation-delay: -3.9s; }
-.why-panel h2 { animation-duration: 8.3s; animation-delay: -1.8s; }
+.page-hero h1 { animation: none; }
+.section-heading h2 { animation: none; }
+.block-title { animation: none; }
+.prose-block h2 { animation: none; }
+.split-copy h2 { animation: none; }
+.cta-panel h2 { animation: none; }
+.event-showcase h2 { animation: none; }
+.why-panel h2 { animation: none; }
 
 .section-heading h2 {
   font-size: clamp(2.2rem, 4.2vw, 3.6rem);

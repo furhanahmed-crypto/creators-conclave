@@ -23,7 +23,7 @@
   display: grid;
   align-content: center;
   gap: clamp(1.5rem, 3vw, 2.5rem);
-  padding: calc(var(--nav-h) + 2rem) 0 2.5rem;
+  padding: calc(var(--nav-h) - 2rem) 0 2.5rem;
   overflow: clip;
 }
 
@@ -121,17 +121,9 @@
 .fx-hero__title {
   margin: 0 0 1rem;
   font-size: clamp(2.4rem, 5.2vw, 4.4rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
-  background-image: var(--text-shine-white);
-  background-size: 240% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.85));
-  animation: title-shine-wave 7.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  animation-delay: -1.5s;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .fx-hero__subtitle {
@@ -364,12 +356,6 @@
 .fx-about__copy h2 {
   margin-bottom: 1.1rem;
   font-size: clamp(2.1rem, 4vw, 3.4rem);
-  background-image: var(--text-shine-white);
-  background-size: 240% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: title-shine-wave 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .fx-about__copy p {
@@ -513,12 +499,6 @@
 .fx-venue__copy h2 {
   margin-bottom: 1rem;
   font-size: clamp(2rem, 3.8vw, 3.2rem);
-  background-image: var(--text-shine-white);
-  background-size: 240% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: title-shine-wave 8.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .fx-venue__copy > p {
@@ -697,12 +677,6 @@
   margin: 0 auto 1.6rem;
   max-width: 18ch;
   font-size: clamp(2rem, 4vw, 3.3rem);
-  background-image: var(--text-shine-white);
-  background-size: 240% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: title-shine-wave 7.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .fx-countdown__grid {
@@ -1207,12 +1181,6 @@
   max-width: 16ch;
   margin: 0;
   font-size: clamp(2rem, 4.2vw, 3.4rem);
-  background-image: var(--text-shine-white);
-  background-size: 240% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: title-shine-wave 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .fx-footer-cta__actions {
@@ -1241,12 +1209,6 @@
 .fx-faq__intro h2 {
   margin-bottom: 1rem;
   font-size: clamp(2rem, 3.6vw, 3rem);
-  background-image: var(--text-shine-white);
-  background-size: 240% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: title-shine-wave 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .fx-faq__intro p {
@@ -1366,12 +1328,6 @@
 .fx-newsletter__inner h2 {
   margin-bottom: 1.3rem;
   font-size: clamp(2rem, 3.8vw, 3.1rem);
-  background-image: var(--text-shine-white);
-  background-size: 240% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: title-shine-wave 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .fx-newsletter__form {
