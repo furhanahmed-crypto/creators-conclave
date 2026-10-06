@@ -1,50 +1,37 @@
 </main>
-<footer class="site-footer">
-    <div class="container site-footer__grid">
-        <div>
-            <a class="logo logo--footer" href="<?= e(url('index.php')) ?>">
-                <span class="logo__mark" aria-hidden="true">CC</span>
-                <span class="logo__word">
-                    <span>Creators</span>
-                    <span>Conclave</span>
-                </span>
-            </a>
-            <p class="site-footer__tag"><?= e($site['tagline']) ?></p>
-            <p class="site-footer__note"><?= e($site['footerAbout']) ?></p>
-        </div>
-        <div>
-            <p class="footer-label">Quick links</p>
-            <ul class="footer-links">
-                <?php foreach ($site['quickLinks'] as $link): ?>
-                    <li><a href="<?= e(url($link['href'])) ?>"><?= e($link['label']) ?></a></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-        <div>
-            <p class="footer-label">Contact</p>
-            <p><?= e($site['office']) ?></p>
-            <p><a href="<?= e($site['phoneHref']) ?>"><?= e($site['phone']) ?></a><br>
-            <a href="mailto:<?= e($site['email']) ?>"><?= e($site['email']) ?></a></p>
-        </div>
-        <div>
-            <p class="footer-label">Social icons</p>
-            <ul class="footer-links">
-                <?php foreach ($site['socials'] as $social): ?>
-                    <li><?= e($social) ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    </div>
-    <div class="container site-footer__base">
-        <p>© 2026 Creators Conclave. Presented by Bee Echoo Pvt Ltd. All rights reserved.</p>
-        <p>
-            <?php foreach ($site['legal'] as $index => $link): ?>
-                <?php if ($index > 0): ?> · <?php endif; ?>
+<footer class="site-footer site-footer--festiva">
+    <div class="container site-footer__center">
+        <a class="logo logo--footer" href="<?= e(url('index.php')) ?>">
+            <span class="logo__mark" aria-hidden="true">CC</span>
+            <span class="logo__word">
+                <span>Creators</span>
+                <span>Conclave</span>
+            </span>
+        </a>
+        <nav class="site-footer__nav" aria-label="Footer">
+            <?php foreach ($site['footerNav'] as $link): ?>
                 <a href="<?= e(url($link['href'])) ?>"><?= e($link['label']) ?></a>
             <?php endforeach; ?>
-        </p>
+        </nav>
+        <ul class="site-footer__socials">
+            <?php foreach ($site['socials'] as $social): ?>
+                <li>
+                    <a
+                        class="site-footer__social"
+                        href="<?= e($social['href']) ?>"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="<?= e($social['label']) ?>"
+                    >
+                        <span aria-hidden="true"><?= e(strtoupper($social['icon'])) ?></span>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <p class="site-footer__copy">© 2026 Creators Conclave · Presented by Bee Echoo Pvt Ltd</p>
     </div>
 </footer>
+<a class="scroll-top" href="#main" data-scroll-top aria-label="Back to top">↑</a>
 <a class="whatsapp" href="<?= e($site['whatsapp']) ?>" target="_blank" rel="noopener">Chat with us</a>
 <div class="popup" data-newsletter hidden>
     <div class="popup__card" role="dialog" aria-labelledby="newsletter-title">

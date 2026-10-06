@@ -21,6 +21,9 @@ $currentPage = $currentPage ?? '';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="<?= e(asset('css/style.css')) ?>">
     <link rel="stylesheet" href="<?= e(asset('css/components.css')) ?>">
+    <?php if (($currentPage ?? '') === 'home'): ?>
+        <link rel="stylesheet" href="<?= e(asset('css/festiva-home.css')) ?>">
+    <?php endif; ?>
 </head>
 <body class="page-<?= e($currentPage ?: 'home') ?>">
 <div class="ambient" aria-hidden="true">

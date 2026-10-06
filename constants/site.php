@@ -27,7 +27,20 @@ $site = [
     'phoneHref' => 'tel:+919381401197',
     'whatsapp' => 'https://wa.me/919381401197',
     'email' => 'hello@creatorsconclave.com',
-    'socials' => ['[Instagram]', '[YouTube]', '[LinkedIn]', '[X]', '[Facebook]'],
+    'socials' => [
+        ['label' => 'Instagram', 'href' => 'https://instagram.com/', 'icon' => 'ig'],
+        ['label' => 'YouTube', 'href' => 'https://youtube.com/', 'icon' => 'yt'],
+        ['label' => 'LinkedIn', 'href' => 'https://linkedin.com/', 'icon' => 'in'],
+        ['label' => 'X', 'href' => 'https://x.com/', 'icon' => 'x'],
+        ['label' => 'Facebook', 'href' => 'https://facebook.com/', 'icon' => 'fb'],
+    ],
+    'footerNav' => [
+        ['label' => 'Schedule', 'href' => 'events.php'],
+        ['label' => 'About Speakers', 'href' => 'jury.php'],
+        ['label' => 'Booking Info', 'href' => 'passes.php'],
+        ['label' => 'Terms & Conditions', 'href' => 'terms.php'],
+        ['label' => 'Privacy Policy', 'href' => 'privacy.php'],
+    ],
     'legal' => [
         ['label' => 'Terms & Conditions', 'href' => 'terms.php'],
         ['label' => 'Privacy Policy', 'href' => 'privacy.php'],

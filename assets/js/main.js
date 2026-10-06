@@ -118,6 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     closeNewsletter();
   });
+  document.querySelector('[data-home-newsletter]')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const button = form.querySelector('button[type="submit"]');
+    if (button) {
+      const original = button.textContent;
+      button.textContent = 'Subscribed';
+      button.disabled = true;
+      window.setTimeout(() => {
+        button.textContent = original;
+        button.disabled = false;
+        form.reset();
+      }, 2200);
+    }
+  });
   if (newsletter && !sessionStorage.getItem('cc-newsletter')) {
     window.setTimeout(() => {
       if (!sessionStorage.getItem('cc-newsletter')) newsletter.hidden = false;
@@ -125,5 +140,77 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mouseout', (event) => {
       if (event.clientY <= 0 && !sessionStorage.getItem('cc-newsletter')) newsletter.hidden = false;
     });
+  }
+
+  const scheduleRoot = document.querySelector('.fx-schedule');
+  if (scheduleRoot) {
+    const tabs = [...scheduleRoot.querySelectorAll('[data-schedule-tab]')];
+    const panels = [...scheduleRoot.querySelectorAll('[data-schedule-panel]')];
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const id = tab.getAttribute('data-schedule-tab');
+        tabs.forEach((item) => {
+          const active = item === tab;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        panels.forEach((panel) => {
+          const active = panel.getAttribute('data-schedule-panel') === id;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  }
+
+  const counters = [...document.querySelectorAll('[data-count]')];
+  if (counters.length && 'IntersectionObserver' in window) {
+    const animateCount = (node) => {
+      const target = Number(node.getAttribute('data-count') || 0);
+      const suffix = node.getAttribute('data-suffix') || '';
+      const duration = 1400;
+      const start = performance.now();
+      const step = (now) => {
+        const progress = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        node.textContent = `${Math.round(target * eased).toLocaleString()}${suffix}`;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        animateCount(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.45 });
+    counters.forEach((node) => observer.observe(node));
+  }
+
+  const slider = document.querySelector('[data-testimonial-slider]');
+  if (slider) {
+    const slides = [...slider.querySelectorAll('[data-testimonial-slide]')];
+    const figures = [...document.querySelectorAll('[data-testimonial-figure]')];
+    let index = Math.max(0, slides.findIndex((slide) => slide.classList.contains('is-active')));
+
+    const show = (next) => {
+      if (!slides.length) return;
+      index = (next + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+      figures.forEach((figure, i) => figure.classList.toggle('is-active', i === index));
+    };
+
+    document.querySelector('[data-testimonial-prev]')?.addEventListener('click', () => show(index - 1));
+    document.querySelector('[data-testimonial-next]')?.addEventListener('click', () => show(index + 1));
+  }
+
+  const scrollTop = document.querySelector('[data-scroll-top]');
+  if (scrollTop) {
+    const onScrollTop = () => {
+      scrollTop.classList.toggle('is-visible', window.scrollY > 480);
+    };
+    onScrollTop();
+    window.addEventListener('scroll', onScrollTop, { passive: true });
   }
 });
