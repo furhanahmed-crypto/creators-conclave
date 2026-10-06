@@ -33,80 +33,25 @@
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  background: #070609;
+  background: #050507;
 }
 
-.fx-hero__base {
+.fx-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  opacity: 1;
+}
+
+.fx-hero__shade {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 55% at 18% 55%, rgba(223, 184, 94, 0.14), transparent 58%),
-    radial-gradient(ellipse 55% 45% at 78% 30%, rgba(160, 120, 32, 0.12), transparent 60%),
-    linear-gradient(160deg, #0a090c 0%, #050507 45%, #0d0a07 100%);
-}
-
-.fx-hero__silk {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.55;
-  mix-blend-mode: screen;
-  will-change: transform;
-}
-
-.fx-hero__silk--a {
-  width: min(70vw, 900px);
-  height: min(38vw, 420px);
-  left: -12%;
-  top: 18%;
-  background: linear-gradient(110deg, rgba(250, 228, 168, 0.35), rgba(223, 184, 94, 0.18), transparent 70%);
-  transform: rotate(-18deg);
-  animation: fx-silk-drift 14s ease-in-out infinite;
-}
-
-.fx-hero__silk--b {
-  width: min(55vw, 720px);
-  height: min(28vw, 320px);
-  right: -8%;
-  bottom: 12%;
-  background: linear-gradient(100deg, transparent, rgba(223, 184, 94, 0.22), rgba(160, 120, 32, 0.28));
-  transform: rotate(12deg);
-  animation: fx-silk-drift 18s ease-in-out infinite reverse;
-}
-
-.fx-hero__silk--c {
-  width: min(40vw, 480px);
-  height: min(40vw, 480px);
-  left: 32%;
-  top: -10%;
-  background: radial-gradient(circle, rgba(255, 242, 196, 0.18), transparent 68%);
-  animation: fx-silk-pulse 10s ease-in-out infinite;
-}
-
-.fx-hero__glow {
-  position: absolute;
-  left: 8%;
-  top: 28%;
-  width: min(48vw, 560px);
-  height: min(48vw, 560px);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(223, 184, 94, 0.22) 0%, rgba(160, 120, 32, 0.08) 42%, transparent 70%);
-  filter: blur(6px);
-}
-
-.fx-hero__sparkles {
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(1.5px 1.5px at 12% 28%, rgba(250, 228, 168, 0.7), transparent),
-    radial-gradient(1.5px 1.5px at 28% 62%, rgba(255, 242, 196, 0.55), transparent),
-    radial-gradient(1px 1px at 48% 22%, rgba(223, 184, 94, 0.65), transparent),
-    radial-gradient(1.5px 1.5px at 68% 48%, rgba(250, 228, 168, 0.5), transparent),
-    radial-gradient(1px 1px at 82% 18%, rgba(255, 255, 255, 0.45), transparent),
-    radial-gradient(1.5px 1.5px at 88% 72%, rgba(223, 184, 94, 0.55), transparent),
-    radial-gradient(1px 1px at 55% 78%, rgba(250, 228, 168, 0.45), transparent);
-  opacity: 0.7;
-  animation: fx-sparkle 6s ease-in-out infinite;
+    linear-gradient(180deg, rgba(5, 5, 7, 0.35) 0%, rgba(5, 5, 7, 0.18) 42%, rgba(5, 5, 7, 0.55) 100%),
+    linear-gradient(90deg, rgba(5, 5, 7, 0.28) 0%, transparent 28%, transparent 72%, rgba(5, 5, 7, 0.28) 100%);
 }
 
 .fx-hero__layout {
@@ -128,31 +73,31 @@
 .fx-hero__figure {
   position: relative;
   margin: 0;
-  width: min(100%, 520px);
-  aspect-ratio: 1 / 1.05;
+  width: min(100%, 460px);
+  aspect-ratio: 3 / 4;
+  display: grid;
+  place-items: center;
 }
 
 .fx-hero__figure img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 28px;
-  border: 1px solid rgba(223, 184, 94, 0.28);
-  box-shadow:
-    0 30px 70px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-    0 0 60px rgba(223, 184, 94, 0.12);
-  filter: saturate(1.05) contrast(1.04);
+  object-fit: contain;
+  object-position: center bottom;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 36px rgba(223, 184, 94, 0.22));
 }
 
 .fx-hero__figure-glow {
   position: absolute;
-  inset: 8% -6% -8% -6%;
+  inset: 18% 8% 4% 8%;
   z-index: -1;
-  border-radius: 40%;
-  background: radial-gradient(circle, rgba(223, 184, 94, 0.28), transparent 68%);
-  filter: blur(18px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(223, 184, 94, 0.32), transparent 68%);
+  filter: blur(22px);
 }
 
 .fx-hero__content {
@@ -1471,12 +1416,6 @@
   animation: none;
 }
 
-.js .fx-hero__glow,
-.js .fx-hero__silk,
-.js .fx-hero__sparkles {
-  animation: none;
-}
-
 .js .fx-marquee__track {
   animation: none;
 }
@@ -1641,9 +1580,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fx-hero__glow,
-  .fx-hero__silk,
-  .fx-hero__sparkles,
   .fx-float-card,
   .fx-marquee__track,
   .fx-hero__title,

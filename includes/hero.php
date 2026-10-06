@@ -4,18 +4,14 @@ $variant = $hero['variant'] ?? 'page';
 <?php if ($variant === 'home'): ?>
 <section class="fx-hero" data-animate="hero">
     <div class="fx-hero__media" aria-hidden="true">
-        <span class="fx-hero__base"></span>
-        <span class="fx-hero__silk fx-hero__silk--a"></span>
-        <span class="fx-hero__silk fx-hero__silk--b"></span>
-        <span class="fx-hero__silk fx-hero__silk--c"></span>
-        <span class="fx-hero__glow"></span>
-        <span class="fx-hero__sparkles"></span>
+        <img class="fx-hero__bg" src="<?= e(asset($hero['background'] ?? $hero['image'])) ?>" alt="">
+        <span class="fx-hero__shade"></span>
     </div>
 
     <div class="container fx-hero__layout">
         <aside class="fx-hero__visual" data-hero="figure">
             <figure class="fx-hero__figure">
-                <img src="<?= e(asset($hero['figure'] ?? $hero['image'])) ?>" alt="">
+                <img src="<?= e(asset($hero['figure'] ?? $hero['image'])) ?>" alt="CreatorX Awards trophy">
                 <span class="fx-hero__figure-glow" aria-hidden="true"></span>
             </figure>
         </aside>

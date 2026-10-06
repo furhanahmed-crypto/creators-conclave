@@ -52,16 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
           if (bar.length) timeline.to(bar, { autoAlpha: 1, y: 0, duration: 1 }, 0.7);
         }
 
-        gsap.utils.toArray(hero.querySelectorAll('.fx-hero__silk')).forEach((silk, i) => {
-          gsap.to(silk, {
-            x: i % 2 === 0 ? 24 : -20,
-            y: i % 2 === 0 ? 16 : -14,
-            duration: 8 + i * 2,
-            ease: 'sine.inOut',
-            yoyo: true,
-            repeat: -1,
-          });
-        });
+        const heroBg = hero.querySelector('.fx-hero__bg');
+        if (heroBg) {
+          gsap.fromTo(
+            heroBg,
+            { scale: 1.06 },
+            { scale: 1, duration: 2.4, ease: 'sine.out' }
+          );
+        }
       }
 
       const reveals = gsap.utils.toArray('[data-reveal]');
@@ -158,18 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
           delay: i * 0.12,
         });
       });
-
-      const glow = document.querySelector('.fx-hero__glow');
-      if (glow) {
-        gsap.to(glow, {
-          scale: 1.08,
-          opacity: 0.85,
-          duration: 4.8,
-          ease: 'sine.inOut',
-          yoyo: true,
-          repeat: -1,
-        });
-      }
 
       gsap.utils.toArray('.fx-flare').forEach((flare) => {
         gsap.fromTo(
